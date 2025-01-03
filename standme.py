@@ -17,7 +17,7 @@ def gen(runs, autogen, time):
 	dd = defaultdict(lambda: defaultdict(int))
 	d = csv.DictReader(runs, delimiter=';')
 	for x in d:
-		if x['User_Inv'] == 'I':
+		if x['User_Inv'] == 'I' or int(x['Dur']) >= time:
 			continue
 		dd[x['Name']][x['Problem']] = max(dd[x['Name']][x['Problem']], int(x['Score']))
 
