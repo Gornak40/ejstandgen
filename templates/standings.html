@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8" />
+	<title>Сборник 2025</title>
+	<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th scope="col" rowspan="2">#</th>
+				<th scope="col" rowspan="2">Участник</th>
+				<th scope="col" colspan="4">Тур 1</th>
+			</tr>
+			<tr>
+				{% for p in prob %}
+				<th scope="col">{{ p }}</th>
+				{% endfor %}
+			</tr>
+		</thead>
+		<tbody>
+			{% for name, stat in vals %}
+			<tr>
+				<th scope="row">{{ loop.index }}</th>
+				<td>{{ name }}</td>
+				{% for p in prob %}
+				<td>{{ stat.get(p, 0) }}</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</body>
+</html>
